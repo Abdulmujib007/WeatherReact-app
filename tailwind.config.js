@@ -11,6 +11,10 @@ export default {
         whiter:'#f3f9ff'
       }
     },
+    screens: {
+      mobile:'320px',
+      laptop:'860px'
+    }
   },  
   plugins: [],
 }

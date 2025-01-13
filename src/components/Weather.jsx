@@ -52,7 +52,6 @@ const Weather = () => {
       return "Saturday";
     }
   });
-  // console.log(dayArray, dayInword);
   const currentDate = (add) => {
     const date = new Date();
     const day = date.getDate();
@@ -68,8 +67,6 @@ const Weather = () => {
 
   
   const { data: weatherData } = result;
-  console.log(weatherData)
-  console.log(currentDate(1),currentDate(2),currentDate(3),currentDate(4))
   const foreCast = weatherData.list.filter((weather) => {
     return (
       weather.dt_txt === `${currentDate(1)} 21:00:00` ||
@@ -78,7 +75,6 @@ const Weather = () => {
       weather.dt_txt === `${currentDate(4)} 21:00:00`
     );
   });
-  console.log(foreCast)
   const style = {
     boxShadow: "0 1px 20px 2px rgba(105, 105,105,0.5)",
   };
@@ -88,13 +84,13 @@ const Weather = () => {
       className="flex flex-col w-1/2 h-3/5 mt-12 justify-between rounded-3xl  shadow-lg  "
       style={style}
     >
-      <section className="mt-9 flex justify-center  items-center pl-4 pr-4 gap-14">
+      <section className="mt-9 flex justify-center  items-center pl-4 pr-4 laptop:gap-14 mobile:gap-0">
         <img
-          className=""
+          className="laptop:w-max mobile:w-32"
           src={`https://openweathermap.org/img/wn/${weatherData.list[0].weather[0].icon}@4x.png`}
           alt="weather-image"
         />
-        <div className="flex flex-col  justify-center text-xl gap-2">
+        <div className="flex flex-col  justify-center mobile:text-base laptop:text-xl gap-2 mobile:mt-10 laptop:mt-0 ">
           <span>Today</span>
           <span className="text-4xl">{weatherData.city.name}</span>
           <span>
@@ -104,14 +100,17 @@ const Weather = () => {
           <span>{weatherData.list[0].weather[0].description}</span>
         </div>
       </section>
-      <div className=" w-1/2 absolute mt-72 flex justify-center gap-6 text-center">
-        {foreCast.map((weather, ind) =>  (
+      <div className=" w-1/2 absolute mt-72 flex justify-center gap-6 text-center px-3">
+        {foreCast.map((weather, ind) => (
           <section
             key={`ind${ind}`}
-            className=" rounded-3xl shadow-lg shadow-gray-500 w-36 p-1"
+            className={`${
+              ind > 1 ? "mobile:hidden laptop:block" : ""
+            }  rounded-3xl shadow-lg shadow-gray-500  mobile:10 laptop:w-36 p-1`}
           >
             <span key={`span${ind}`}>{dayInword[ind + 1]}</span>
             <img
+              // className={``}
               key={`img${ind}`}
               src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
               alt=""

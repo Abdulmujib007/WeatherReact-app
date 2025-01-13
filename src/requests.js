@@ -4,6 +4,5 @@ const baseurl =  (city) => `https://api.openweathermap.org/data/2.5/forecast?q=$
 export const getAll = async (city) => {
     const response = await axios.get(baseurl(city))
     
-    console.log(city,baseurl(city),response.data)
     return response.data
 }
