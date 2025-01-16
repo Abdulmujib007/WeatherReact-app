@@ -84,7 +84,7 @@ const Weather = () => {
       className="flex flex-col w-1/2 h-3/5 mt-12 justify-between rounded-3xl  shadow-lg  "
       style={style}
     >
-      <section className="mt-9 flex justify-center mobile2:flex-col  items-center pl-4 pr-4 laptop:gap-14 mobile:gap-0">
+      <section className="mt-9 flex justify-center  items-center pl-4 pr-4 laptop:gap-14 mobile:gap-1">
         <img
           className="laptop:w-max mobile:w-32"
           src={`https://openweathermap.org/img/wn/${weatherData.list[0].weather[0].icon}@4x.png`}
@@ -100,7 +100,7 @@ const Weather = () => {
           <span className="laptop:text-base mobile:text-sm">{weatherData.list[0].weather[0].description}</span>
         </div>
       </section>
-      <div className=" w-1/2 absolute laptop:mt-72 mobile:mt-[19rem] flex justify-center laptop:gap-6 mobile:gap-2 text-center laptop:px-3 mobile:px-1 ">
+      <div className=" w-1/2 absolute laptop:mt-72 mobile:mt-[19rem] flex justify-center laptop:gap-6 mobile:gap-4 text-center laptop:px-3 mobile:px-1 ">
         {foreCast.map((weather, ind) => (
           <section
             key={`ind${ind}`}
@@ -110,7 +110,7 @@ const Weather = () => {
           >
             <span key={`span${ind}`}>{dayInword[ind + 1]}</span>
             <img
-              // className={``}
+              className={`laptop:w-full mobile:w-20`}
               key={`img${ind}`}
               src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
               alt=""
