@@ -84,7 +84,7 @@ const Weather = () => {
       className="flex flex-col w-1/2 h-3/5 mt-12 justify-between rounded-3xl  shadow-lg  "
       style={style}
     >
-      <section className="mt-9 flex justify-center  items-center pl-4 pr-4 laptop:gap-14 mobile:gap-0">
+      <section className="mt-9 flex justify-center mobile2:flex-col  items-center pl-4 pr-4 laptop:gap-14 mobile:gap-0">
         <img
           className="laptop:w-max mobile:w-32"
           src={`https://openweathermap.org/img/wn/${weatherData.list[0].weather[0].icon}@4x.png`}
@@ -92,21 +92,21 @@ const Weather = () => {
         />
         <div className="flex flex-col  justify-center mobile:text-base laptop:text-xl gap-2 mobile:mt-10 laptop:mt-0 ">
           <span>Today</span>
-          <span className="text-4xl">{weatherData.city.name}</span>
-          <span>
+          <span className="laptop:text-4xl mobile:text-xl">{weatherData.city.name}</span>
+          <span className="laptop:text-base mobile:text-sm">
             Temperature {(weatherData.list[0].main.temp - 273).toFixed(2)}{" "}
             <sup>o</sup>C{" "}
           </span>
-          <span>{weatherData.list[0].weather[0].description}</span>
+          <span className="laptop:text-base mobile:text-sm">{weatherData.list[0].weather[0].description}</span>
         </div>
       </section>
-      <div className=" w-1/2 absolute mt-72 flex justify-center gap-6 text-center px-3">
+      <div className=" w-1/2 absolute laptop:mt-72 mobile:mt-[19rem] flex justify-center laptop:gap-6 mobile:gap-2 text-center laptop:px-3 mobile:px-1 ">
         {foreCast.map((weather, ind) => (
           <section
             key={`ind${ind}`}
             className={`${
               ind > 1 ? "mobile:hidden laptop:block" : ""
-            }  rounded-3xl shadow-lg shadow-gray-500  mobile:10 laptop:w-36 p-1`}
+            }  rounded-3xl shadow-lg shadow-gray-500  mobile:w-fit laptop:w-36 p-1`}
           >
             <span key={`span${ind}`}>{dayInword[ind + 1]}</span>
             <img
