@@ -81,10 +81,10 @@ const Weather = () => {
 
   return (
     <div
-      className="flex flex-col w-1/2 h-3/5 mt-12 justify-between rounded-3xl  shadow-lg  "
+      className="relative  flex flex-col w-1/2 h-3/5 mt-12 justify-between rounded-3xl  shadow-lg  "
       style={style}
     >
-      <section className="mt-9 flex justify-center  items-center pl-4 pr-4 laptop:gap-14 mobile:gap-1">
+      <section className="relative mt-9 flex justify-center  items-center pl-4 pr-4 laptop:gap-14 mobile:gap-0 tablet:flex-row laptop:flex-row mobile:flex-col-reverse">
         <img
           className="laptop:w-max mobile:w-32"
           src={`https://openweathermap.org/img/wn/${weatherData.list[0].weather[0].icon}@4x.png`}
@@ -92,15 +92,19 @@ const Weather = () => {
         />
         <div className="flex flex-col  justify-center mobile:text-base laptop:text-xl gap-2 mobile:mt-10 laptop:mt-0 ">
           <span>Today</span>
-          <span className="laptop:text-4xl mobile:text-xl">{weatherData.city.name}</span>
+          <span className="laptop:text-4xl mobile:text-xl">
+            {weatherData.city.name}
+          </span>
           <span className="laptop:text-base mobile:text-sm">
             Temperature {(weatherData.list[0].main.temp - 273).toFixed(2)}{" "}
             <sup>o</sup>C{" "}
           </span>
-          <span className="laptop:text-base mobile:text-sm">{weatherData.list[0].weather[0].description}</span>
+          <span className="laptop:text-base mobile:text-sm">
+            {weatherData.list[0].weather[0].description}
+          </span>
         </div>
       </section>
-      <div className=" w-1/2 absolute laptop:mt-72 mobile:mt-[19rem] flex justify-center laptop:gap-6 mobile:gap-4 text-center laptop:px-3 mobile:px-1 ">
+      <div className=" w-full absolute bottom-[-5.5rem]   flex justify-center laptop:gap-6 mobile:gap-4 tablet:gap-16 text-center laptop:px-3 mobile:px-1 ">
         {foreCast.map((weather, ind) => (
           <section
             key={`ind${ind}`}
@@ -108,14 +112,22 @@ const Weather = () => {
               ind > 1 ? "mobile:hidden laptop:block" : ""
             }  rounded-3xl shadow-lg shadow-gray-500  mobile:w-fit laptop:w-36 p-1`}
           >
-            <span key={`span${ind}`}>{dayInword[ind + 1]}</span>
+            <span
+              className="laptop:text-base mobile:text-sm"
+              key={`span${ind}`}
+            >
+              {dayInword[ind + 1]}
+            </span>
             <img
               className={`laptop:w-full mobile:w-20`}
               key={`img${ind}`}
               src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
               alt=""
             />
-            <span key={`${ind} span`}>
+            <span
+              className="laptop:text-base mobile:text-sm"
+              key={`${ind} span`}
+            >
               {(weather.main.temp - 273).toFixed(2)} <sup>o</sup>C
             </span>
           </section>
