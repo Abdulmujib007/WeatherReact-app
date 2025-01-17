@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useQuery,useQueryClient } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getAll } from "../requests";
 const Filter = () => {
   const queryClient = useQueryClient();
@@ -19,12 +19,14 @@ const Filter = () => {
   };
   return (
     <form onSubmit={submitHandler}>
-      <input
-        className="h-8 w-96 pl-6 rounded-2xl outline-none  "
-        placeholder="Enter a city..."
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-      />
+      <main className="border-b-2 border-b-white w-fit">
+        <input
+          className="h-8 w-80 pl-2  outline-none bg-transparent placeholder-white  text-white  "
+          placeholder="Search location"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
+      </main>
     </form>
   );
 };

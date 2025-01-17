@@ -13,8 +13,8 @@ export default {
     },
     screens: {
       mobile:'320px',
-      tablet:'690px',
-      laptop:'860px',
+      tablet:'800px',
+      laptop:'1050px',
 
     }
   },  

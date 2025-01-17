@@ -1,15 +1,13 @@
-import Filter from "./components/Filter";
+// import Filter from "./components/Filter";
 import Weather from "./components/Weather";
 
 const App = () => {
 
-return(
-  <div className="bg-[url('/img/background.jpg')] bg-cover bg-center h-screen w-screen flex flex-col items-center pt-10">
-    <Filter/>
-    <Weather/>
-
+return (
+  <div className="bg-[url('/img/pexels-packermann-1666012.jpg')] bg-cover  bg-center w-screen h-fit tablet:pl-10 mobile:pl-5 ">
+    <Weather />
   </div>
-)
+);
 };
 
 export default App;
