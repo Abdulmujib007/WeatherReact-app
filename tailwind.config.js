@@ -13,7 +13,7 @@ export default {
     },
     screens: {
       mobile:'320px',
-      tablet:'800px',
+      tablet:'780px',
       laptop:'1050px',
 
     }
