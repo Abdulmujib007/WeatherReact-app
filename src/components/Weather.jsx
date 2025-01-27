@@ -9,7 +9,7 @@ const Weather = () => {
   });
   if (result.isLoading) {
     return (
-      <div className="pt-9">
+      <div className="pt-9 ml-9">
         <img src="/img/loading.gif" alt="" />
       </div>
     );
@@ -120,7 +120,7 @@ const Weather = () => {
             {/* <main> */}
             <p>Weather Details</p>
             <p className="mt-[0.8rem] ">Today:</p>
-            <div className="mt-[1.9rem] pb-10 border-b-[1px] border-b-white flex flex-col gap-8">
+            <div className="mt-[1.9rem] pb-10 border-b-[1px] border-b-white flex flex-col laptop:justify-between laptop:h-[40%] mobile:gap-9">
               <p className="flex gap-40 justify-between">
                 <span className="text-whitly">Location</span>
                 <span>
@@ -141,7 +141,7 @@ const Weather = () => {
                 <span>{weatherData.list[0].wind.speed}m/s</span>
               </p>
             </div>
-            <div className="mt-10 flex flex-col gap-8">
+            <div className="mt-10 flex flex-col mobile:gap-9 laptop:justify-between laptop:h-[40%]">
               <p className="flex justify-between">
                 <span className="text-whitly">Max</span>
                 <span>
@@ -172,16 +172,14 @@ const Weather = () => {
               </p>
             </div>
           </div>
-          {/* <div className="">
-           */}
           <div className=" tablet:pt-9 mobile:pt-0 mt-0 ">
             <span>Weather overview</span>
-            <div className=" flex  flex-col gap-3 ">
+            <div className=" flex  flex-col laptop:justify-between laptop:h-[95%] mobile:gap-5  ">
               {foreCast.map((weather, ind) => (
                 <main
                   className={`pb-1 ${
                     ind === 3 ? "border-b-0" : "border-b-[1px]"
-                  }   border-b-white flex flex-col gap-3`}
+                  }   border-b-white flex flex-col mobile:gap-3 laptop:justify-center laptop:h-[22%] `}
                   key={`div${ind}`}
                 >
                   <div className="flex  justify-between gap-40 items-center mb-1 ">
@@ -207,8 +205,6 @@ const Weather = () => {
                 </main>
               ))}
             </div>
-
-            {/* <div className="mt-5"></div> */}
           </div>
         </section>
       </main>
